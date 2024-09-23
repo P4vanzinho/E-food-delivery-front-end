@@ -22,7 +22,7 @@ export const Container = styled.div`
     flex-direction: column;
     gap: 1rem;
     height: 100%;
-
+    padding: 1rem;
     > footer {
       display: flex;
       width: 100%;
