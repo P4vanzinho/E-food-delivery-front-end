@@ -243,7 +243,6 @@ export const ButtonsImageContainer = styled.div`
     border: none;
     display: flex;
     align-items: center;
-    z-index: -1;
     justify-content: center;
     position: relative;
 
