@@ -270,7 +270,10 @@ export default function PedidoStatus() {
       </StatusAndDeliveryDataContainer>
 
       <Footer>
-        <Button text="Fazer novo pedido" onClick={() => router} />
+        <Button
+          text="Fazer novo pedido"
+          onClick={() => router.push("/produtos")}
+        />
       </Footer>
     </Container>
   );
