@@ -7,7 +7,6 @@ import {
   Container,
   InputWrapper,
   PhotoFood,
-  QtyControlContainer,
   QtyInputContainer,
   PriceContainer,
 } from "./styles";
@@ -15,61 +14,54 @@ import Price from "../Price";
 import { poppins } from "@/app/fonts";
 import trash from "../../../../public/trash.png";
 import Image from "next/image";
-import subtraticVector from "../../../../public/subtraticVector.svg";
 
-type BagItem = {
+// import foward from "../../../../public/foward.svg";
+// import backward from "../../../../public/backward.svg";
+import InputQty from "../InputQty";
+type BagItemProps = {
   item: Item;
 };
 
-export default function BagItem({ item }: BagItem) {
+export default function BagItem({ item }: BagItemProps) {
   const { editItem, removeItem } = useBagContext();
   const inputRef = useRef<HTMLInputElement>(null);
-  const [, setQty] = useState(0);
-  const [subtractActive, setSubractActive] = useState(true);
-  const [inputValue, setInputValue] = useState(item.qty);
-
+  // const [inputValue] = useState(item.qty);
+  const [qty, setQty] = useState(item.qty);
   const inputQtyCallback = (value: number) => {
     setQty(value);
   };
+  // const isSubtractDisabled = inputValue <= 1;
 
   useEffect(() => {
-    setSubractActive(inputValue > 0);
-    inputQtyCallback(inputValue);
-  }, [inputValue]);
+    editItem({
+      ...item,
+      qty: qty,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [qty]);
 
-  const buttonOnClick = (mode: "add" | "subtract") => {
-    if (!subtractActive && mode === "subtract") {
-      return;
-    }
-
-    setInputValue((current) =>
-      mode === "subtract" ? current - 1 : current + 1
-    );
-  };
+  // const buttonOnClick = (mode: "add" | "subtract") => {
+  //   setInputValue((current) =>
+  //     mode === "subtract" && current > 1 ? current - 1 : current + 1
+  //   );
+  // };
 
   const inputOnClick = () => {
     inputRef?.current?.focus();
   };
 
-  const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(Number(e.currentTarget.value));
-  };
+  // const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const newValue = Math.max(Number(e.currentTarget.value), 1);
+  //   setInputValue(newValue);
+  // };
 
-  const inputOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    e.currentTarget.select();
-  };
+  // const inputOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+  //   e.currentTarget.select();
+  // };
 
   const trashOnClick = () => {
     removeItem(item.id as string);
   };
-
-  useEffect(() => {
-    editItem({
-      ...item,
-      qty: inputValue,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inputValue, editItem]);
 
   return (
     <Container>
@@ -98,46 +90,13 @@ export default function BagItem({ item }: BagItem) {
         </div>
         <InputWrapper onClick={inputOnClick}>
           <QtyInputContainer>
-            <input
-              className={poppins.className}
-              ref={inputRef}
-              type="text"
-              value={inputValue}
-              onChange={inputOnChange}
-              onFocus={inputOnFocus}
+            <InputQty
+              callback={inputQtyCallback}
+              initialValue={qty}
+              qty={qty}
+              inBag
+              setQty={setQty}
             />
-
-            <QtyControlContainer>
-              <div>
-                <button
-                  disabled={!subtractActive}
-                  type="button"
-                  onClick={() => buttonOnClick("add")}
-                >
-                  <Image
-                    src={subtraticVector}
-                    alt={`botao para subtrair quantidade`}
-                    width={10}
-                    height={10}
-                  />
-                </button>
-
-                <button
-                  disabled={!subtractActive}
-                  type="button"
-                  onClick={() =>
-                    subtractActive ? buttonOnClick("subtract") : () => {}
-                  }
-                >
-                  <Image
-                    src={subtraticVector}
-                    alt={`botao para subtrair quantidade`}
-                    width={10}
-                    height={10}
-                  />
-                </button>
-              </div>
-            </QtyControlContainer>
           </QtyInputContainer>
         </InputWrapper>
       </Actions>

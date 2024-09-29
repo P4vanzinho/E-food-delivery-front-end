@@ -44,7 +44,7 @@ type HTMLInputTypeAttribute =
 type InputProps = {
   valuesCallback?: (
     original: string | number | readonly string[],
-    masked: string | number | readonly string[],
+    masked: string | number | readonly string[]
   ) => void;
   label?: string;
   type: HTMLInputTypeAttribute;
@@ -121,7 +121,7 @@ export default function Input({
 
   const maskValueByType = (
     value?: string | number | readonly string[],
-    type?: HTMLInputTypeAttribute,
+    type?: HTMLInputTypeAttribute
   ) => {
     if (!type) {
       return value;

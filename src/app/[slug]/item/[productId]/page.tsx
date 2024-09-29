@@ -29,7 +29,7 @@ type ProductProps = {
 };
 
 export default function Product(props: ProductProps) {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const { addItem } = useBagContext();
   const router = useRouter();
   const { product } = useMocks();
@@ -67,7 +67,12 @@ export default function Product(props: ProductProps) {
           />
 
           <QtyInputContainer>
-            <InputQty callback={inputQtyCallback} initialValue={qty} />
+            <InputQty
+              callback={inputQtyCallback}
+              initialValue={qty}
+              qty={qty}
+              setQty={setQty}
+            />
           </QtyInputContainer>
 
           <Content>

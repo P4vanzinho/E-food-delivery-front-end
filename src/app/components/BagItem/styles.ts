@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   background-color: ${theme.COLORS.WHITE};
-  padding: 1.375rem 1.563rem;
+  padding: 1.375rem 1.2rem;
   border-radius: 20px;
 
   > div:nth-of-type(1) {
@@ -52,15 +52,16 @@ export const Actions = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 1.688rem;
+
+  gap: 1rem;
 
   > div:nth-of-type(1) {
     display: flex;
     justify-content: flex-end;
 
     > button {
-      height: 22px;
-      width: 19px;
+      height: 25px;
+      width: 25px;
       padding: 2px;
       display: flex;
       justify-content: center;
@@ -103,6 +104,9 @@ export const Actions = styled.div`
 export const ButtonDeleteContainer = styled.div``;
 
 export const InputWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+  align-items: center;
   input {
     color: ${theme.COLORS.DARK};
     border: none;
@@ -127,9 +131,24 @@ export const InputWrapper = styled.div`
 
 export const QtyInputContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+
   > input {
-    font-size: 14px;
+    text-align: center;
+    font-size: 20px;
     font-weight: 600;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 `;
 

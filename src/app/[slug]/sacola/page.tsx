@@ -13,8 +13,6 @@ import Button from "@/app/components/Button";
 import { poppins } from "@/app/fonts";
 import BagItem from "@/app/components/BagItem";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-
 import { useOrderContext } from "@/context/order";
 import Price from "@/app/components/Price";
 
@@ -26,9 +24,8 @@ type BagProps = {
 
 export default function Bag({ params }: BagProps) {
   const { setCurrentOrder } = useOrderContext();
-  // TODO fix itens text
   const { itens: items, total } = useBagContext();
-  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
 
   const addItemOnClick = () => {
@@ -36,8 +33,6 @@ export default function Bag({ params }: BagProps) {
   };
 
   const paymentMethodButtonOnClick = () => {
-    setLoading(true);
-
     const route = `/${params?.slug}/checkout/entrega/alterar`;
 
     const orderItems = items.map((item) => ({
@@ -82,7 +77,6 @@ export default function Bag({ params }: BagProps) {
           disabled={!total}
           text="Fechar pedido"
           onClick={paymentMethodButtonOnClick}
-          loading={!!loading}
         />
       </Footer>
     </Container>
