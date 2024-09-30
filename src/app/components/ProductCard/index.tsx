@@ -8,10 +8,11 @@ type ProductCardProps = {
   data: MockProductType;
   mode: "private" | "public";
 };
-import foodImg from "../../../../public/foodImg.png";
+
 export default function ProductCard({ data, mode }: ProductCardProps) {
   const pathname = usePathname();
   const router = useRouter();
+  console.log(data, `data`);
 
   const cardOnClick = () => {
     const path =
@@ -24,7 +25,7 @@ export default function ProductCard({ data, mode }: ProductCardProps) {
 
   return (
     <Container onClick={cardOnClick}>
-      <PhotoFood src={foodImg} height={130} width={130} alt={data.name} />
+      <PhotoFood src={data.upload} height={130} width={130} alt={data.name} />
 
       <div>
         <Text>{data.name}</Text>

@@ -17,7 +17,7 @@ export default function CategoryList({ mode = "public" }: CategoryListProps) {
         categories.map((category, index) => (
           <React.Fragment key={index}>
             <Title>{category.name}</Title>
-            <ProductList mode={mode} />
+            <ProductList mode={mode} category={category} />
           </React.Fragment>
         ))}
     </Container>

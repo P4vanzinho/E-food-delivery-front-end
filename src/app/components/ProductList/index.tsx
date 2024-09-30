@@ -1,16 +1,23 @@
+import { StaticImageData } from "next/image";
 import ProductCard from "../ProductCard";
 import { Container } from "./styles";
-import useMocks from "@/mocks/mock";
+
 type ProductList = {
   mode: "private" | "public";
+  category: {
+    name: string;
+    products: {
+      name: string;
+      upload: StaticImageData;
+      slug: string;
+      price: string;
+      description: string;
+    }[];
+  };
 };
 
-export default function ProductList({ mode }: ProductList) {
-  const { categories } = useMocks();
-
-  const products = categories.flatMap(
-    (category) => category.products.filter((product) => product) // Filtro para garantir que não há produtos nulos/indefinidos
-  );
+export default function ProductList({ mode, category }: ProductList) {
+  const products = category.products;
 
   return (
     <Container>

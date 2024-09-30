@@ -1,8 +1,8 @@
+import { StaticImageData } from "next/image";
+
 export type MockProductType = {
   name: string;
-  upload: {
-    url: string;
-  };
+  upload: StaticImageData;
   slug: string;
   price: string;
   description: string;

@@ -1,109 +1,85 @@
 "use client";
-
+import foodImg from "../../public/foodImg.png";
+import chocolate from "../../public/chocolate.jpg";
+import jantinha from "../../public/jantinha.jpg";
 import { useState } from "react";
 export default function useMocks() {
   const [categories] = useState([
     {
-      name: "petiscos",
+      name: "Petiscos",
       products: [
         {
           name: "salada de ovos",
-          upload: { url: "" },
+          upload: foodImg,
           slug: "salada-de-ovos",
-          price: "20",
+          price: "2000",
           description: "Salada de ovos deliciosa, feita no capricho.",
         },
         {
           name: "salada de ovos",
-          upload: { url: "" },
+          upload: foodImg,
           slug: "salada-de-ovos",
-          price: "20",
+          price: "2000",
           description: "Salada de ovos deliciosa, feita no capricho.",
         },
         {
           name: "salada de ovos",
-          upload: { url: "" },
+          upload: foodImg,
           slug: "salada-de-ovos",
-          price: "20",
+          price: "2000",
           description: "Salada de ovos deliciosa, feita no capricho.",
         },
       ],
     },
     {
-      name: "petiscos",
+      name: "Sobremesas",
       products: [
         {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
+          name: "chocolate ao leite",
+          upload: chocolate,
+          slug: "chocolate-ao-leite",
+          price: "400",
+          description: "30 porcento de cacau.",
         },
         {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
+          name: "chocolate ao leite",
+          upload: chocolate,
+          slug: "chocolate-ao-leite",
+          price: "400",
+          description: "30 porcento de cacau.",
         },
         {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
+          name: "chocolate ao leite",
+          upload: chocolate,
+          slug: "chocolate-ao-leite",
+          price: "400",
+          description: "30 porcento de cacau.",
         },
       ],
     },
     {
-      name: "petiscos",
+      name: "Comida brasileira",
       products: [
         {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
+          name: "Jantinha com espetinho",
+          upload: jantinha,
+          slug: "jantinha",
+          price: "3400",
+          description: "Arroz, feijao tropeiro e espetinho de carne.",
         },
         {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
+          name: "Jantinha com espetinho",
+          upload: jantinha,
+          slug: "jantinha",
+          price: "3400",
+          description: "Arroz, feijao tropeiro e espetinho de carne.",
         },
         {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
-        },
-      ],
-    },
-    {
-      name: "petiscos",
-      products: [
-        {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
-        },
-        {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
-        },
-        {
-          name: "salada de ovos",
-          upload: { url: "" },
-          slug: "salada-de-ovos",
-          price: "20",
-          description: "Salada de ovos deliciosa, feita no capricho.",
+          name: "Jantinha com espetinho",
+          upload: jantinha,
+          slug: "jantinha",
+          price: "3400",
+          description: "Arroz, feijao tropeiro e espetinho de carne.",
         },
       ],
     },
@@ -151,15 +127,6 @@ export default function useMocks() {
     },
   });
 
-  const product = {
-    id: 1,
-    name: "salada de ovos",
-    upload: { url: "" },
-    slug: "salada-de-ovos",
-    price: "20",
-    description: "Salada de ovos deliciosa, feita no capricho.",
-  };
-
   const business = {
     whatsapp: "62999999999",
     status: "open",
@@ -167,7 +134,7 @@ export default function useMocks() {
   };
   return {
     categories,
-    product,
+
     business,
     businessInfos,
     user,
